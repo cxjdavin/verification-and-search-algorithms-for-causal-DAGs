@@ -2,7 +2,7 @@
 
 This is the accompanying repository the "Verification and search algorithms for causal DAGs" paper. It is available at https://arxiv.org/abs/2206.15374. Our experiments are based on https://github.com/csquires/dct-policy, the accompanying repository of [SMG+20].
 
-## --- Experimental details ---
+## Experimental details
 
 ### Graph classes
 
@@ -43,7 +43,7 @@ Graph class 1 with `n` = {10, 15, 20, ... , 95, 100} and `density` = 0.1. We run
 5. Experiment 5 (`fig1e.py`):  
 Graph class 2 with `n` = {100, 200, 300, 400, 500} and `degree`, `e_min`, `e_max` = {40, 20, 50}. We run `separator` with $k \in \{1,2,3,5\}$ on the same graph class as `fig1c.py`, but on denser graphs. 
 
-## --- Instructions on reproducing our experiments ---
+## Instructions on reproducing our experiments
 
 To reproduce our figures in the appendix, execute `bash script.sh` after cloning. The script does the following:
 1) Download necessary files
@@ -53,7 +53,7 @@ To reproduce our figures in the appendix, execute `bash script.sh` after cloning
 
 We also included a copy of the produced `figures` sub-directory in here so you may look at the output without running the script.
 
-## --- High-level description of files in `our_code` folder ---
+## High-level description of files in `our_code` folder
 
 The following files are modifications of the dct-policy source files:
 1) `alg_runner.py`
@@ -75,7 +75,7 @@ The following files are newly created by us:
 
 `verify.py` contains our verification algorithm which computes a minimum vertex cover on the covered edges of a given DAG. `separator_policy.py` is our implementation of `Algorithm 1` in the paper that is based on chordal graph separators.
 
-## --- Interpretation of plots in the `figures` folder ---
+## Interpretation of plots in the `figures` folder
 
 Each experiment produces 3 plots measuring "average regret", "maximum regret" and "time taken". For any fixed setting, 100 synthetic DAGs are generated as G<sup>\*</sup> for testing, so we include error bars for "average regret" and "time taken" in the plots.
 
@@ -85,11 +85,11 @@ Each experiment produces 3 plots measuring "average regret", "maximum regret" an
 
 In all plots, "lower is better".
 
-## --- Implementations of `separator` ---
+## Implementations of `separator`
 
 Our implementation of the chordal graph separator is the `FAST CHORDAL SEPARATOR` algorithm in [GRE84] which first computes a perfect elimination ordering of a given chordal graph. To do so, we use Eppstein's LexBFS implementation (https://www.ics.uci.edu/~eppstein/PADS/LexBFS.py).
 
-## --- References ---
+## References
 
 [This paper] Davin Choo, Kirankumar Shiragur, and Arnab Bhattacharyya. Verification and search algorithms for causal DAGs. Advances in Neural Information Processing Systems, 2022. Available at https://arxiv.org/abs/2206.15374
 
