@@ -8,7 +8,7 @@ This is the accompanying repository the "Verification and search algorithms for 
 
 The synthetic graphs are random connected DAGs whose essential graph is a single chain component (i.e. moral DAGs in [SMG+20]'s terminology). Below, we reproduce the synthetic graph generation procedure from Section 5 of [SMG+20].
 
-1. Erdos-Renyi styled graphs  
+1. Erdős-Rényi styled graphs  
 These graphs are parameterized by 2 parameters: `n` and `density` $\rho$. Generate a random ordering $\sigma$ over `n` vertices. Then, set the in-degree of the n<sup>th</sup> vertex (i.e. last vertex in the ordering) in the order to be $X_n = \max${1, $\texttt{Binomial}$(`n`-1, $\rho$)}, and sample $X_n$ parents uniformly form the nodes earlier in the ordering. Finally, chordalize the graph by running the elimination algorithm of [KF09] with elimination ordering equal to the reverse of $\sigma$.
 
 2. Tree-like graphs  
@@ -29,19 +29,19 @@ All the above algorithms perform **atomic interventions**. Our algorithm `separa
 ### Experiments
 
 1. Experiment 1 (`fig1a.py`):  
-Graph class 1 with `n` $\in$ {10, 15, 20, 25} and `density` = 0.1. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. 
+Graph class 1 with `n` $\in$ {10, 15, 20, 25} and `density` $\rho = 0.1$. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. 
 
 2. Experiment 2 (`fig1b.py`):  
-Graph class 1 with `n` $\in$ {8, 10, 12, 14} and `density` = 0.1. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. Note that this is the same graph class as `fig1a.py` but on smaller graphs because some slower algorithms are being run. 
+Graph class 1 with `n` $\in$ {8, 10, 12, 14} and `density` $\rho = 0.1$. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. Note that this is the same graph class as `fig1a.py` but on smaller graphs because some slower algorithms are being run. 
 
 3. Experiment 3 (`fig1c.py`):  
-Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500}, `degree`, `e_min`, `e_max` = {4, 2, 5}. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$.
+Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500} and (`degree`, `e_min`, `e_max`) = (4, 2, 5). This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$.
 
 4. Experiment 4 (`fig1d.py`):  
-Graph class 1 with `n` $\in$ {10, 15, 20, ... , 95, 100} and `density` = 0.1. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1a.py`, but on larger graphs. 
+Graph class 1 with `n` $\in$ {10, 15, 20, ... , 95, 100} and `density` $\rho = 0.1$. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1a.py`, but on larger graphs. 
 
 5. Experiment 5 (`fig1e.py`):  
-Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500} and `degree`, `e_min`, `e_max` = {40, 20, 50}. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1c.py`, but on denser graphs. 
+Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500} and (`degree`, `e_min`, `e_max`) = (40, 20, 50). We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1c.py`, but on denser graphs. 
 
 ## Instructions on reproducing our experiments
 
