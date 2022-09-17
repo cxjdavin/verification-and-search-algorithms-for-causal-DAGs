@@ -9,7 +9,7 @@ This is the accompanying repository the "Verification and search algorithms for 
 The synthetic graphs are random connected DAGs whose essential graph is a single chain component (i.e. moral DAGs in [SMG+20]'s terminology). Below, we reproduce the synthetic graph generation procedure from Section 5 of [SMG+20].
 
 1. Erdos-Renyi styled graphs  
-These graphs are parameterized by 2 parameters: `n` and `density` $\rho$. Generate a random ordering $\sigma$ over `n` vertices. Then, set the in-degree of the n<sup>th</sup> vertex (i.e. last vertex in the ordering) in the order to be $X_n = \max\{1, \texttt{Binomial}(n-1, \rho)\}$, and sample $X_n$ parents uniformly form the nodes earlier in the ordering. Finally, chordalize the graph by running the elimination algorithm of [KF09] with elimination ordering equal to the reverse of $\sigma$.
+These graphs are parameterized by 2 parameters: `n` and `density` $\rho$. Generate a random ordering $\sigma$ over `n` vertices. Then, set the in-degree of the n<sup>th</sup> vertex (i.e. last vertex in the ordering) in the order to be $X_n = \max${1, $\texttt{Binomial}$(`n`-1, $\rho$)}, and sample $X_n$ parents uniformly form the nodes earlier in the ordering. Finally, chordalize the graph by running the elimination algorithm of [KF09] with elimination ordering equal to the reverse of $\sigma$.
 
 2. Tree-like graphs  
 These graphs are parameterized by 4 parameters: `n`, `degree`, `e_min`, and `e_max`. First, generate a complete directed `degree`-ary tree on `n` nodes. Then, add $\texttt{Uniform}$(`e_min`, `e_max`) edges to the tree. Finally, compute a topological order of the graph by DFS and triangulate the graph using that order.
@@ -38,10 +38,10 @@ Graph class 1 with `n` = {8, 10, 12, 14} and `density` = 0.1. This is the same s
 Graph class 2 with `n` = {100, 200, 300, 400, 500}, `degree`, `e_min`, `e_max` = {4, 2, 5}. This is the same setup as `dct-policy`. Additionally we run `separator` with $k = 1$.
 
 4. Experiment 4 (`fig1d.py`):  
-Graph class 1 with `n` = {10, 15, 20, ... , 95, 100} and `density` = 0.1. We run `separator` with $k \in \{1,2,3,5\}$ on the same graph class as `fig1a.py`, but on larger graphs. 
+Graph class 1 with `n` = {10, 15, 20, ... , 95, 100} and `density` = 0.1. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1a.py`, but on larger graphs. 
 
 5. Experiment 5 (`fig1e.py`):  
-Graph class 2 with `n` = {100, 200, 300, 400, 500} and `degree`, `e_min`, `e_max` = {40, 20, 50}. We run `separator` with $k \in \{1,2,3,5\}$ on the same graph class as `fig1c.py`, but on denser graphs. 
+Graph class 2 with `n` = {100, 200, 300, 400, 500} and `degree`, `e_min`, `e_max` = {40, 20, 50}. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1c.py`, but on denser graphs. 
 
 ## Instructions on reproducing our experiments
 
