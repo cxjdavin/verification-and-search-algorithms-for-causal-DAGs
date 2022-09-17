@@ -51,7 +51,7 @@ To reproduce our figures in the appendix, execute `bash script.sh` after cloning
 3) Run the experiments
 4) Generate the plots and place in a folder called `figures`
 
-We also included a copy of the produced `figures` sub-directory in here so you may look at the output without running the script.
+We also included a copy of the produced `figures` sub-directory in here so you may look at the output without running the script. We have also renamed plot names to reflect the experiments appropriately.
 
 ## High-level description of files in `our_code` folder
 
