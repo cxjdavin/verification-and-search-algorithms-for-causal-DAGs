@@ -29,19 +29,19 @@ All the above algorithms perform **atomic interventions**. Our algorithm `separa
 ### Experiments
 
 1. Experiment 1 (`fig1a.py`):  
-Graph class 1 with `n` = {10, 15, 20, 25} and `density` = 0.1. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. 
+Graph class 1 with `n` $\in$ {10, 15, 20, 25} and `density` = 0.1. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. 
 
 2. Experiment 2 (`fig1b.py`):  
-Graph class 1 with `n` = {8, 10, 12, 14} and `density` = 0.1. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. Note that this is the same graph class as `fig1a.py` but on smaller graphs because some slower algorithms are being run. 
+Graph class 1 with `n` $\in$ {8, 10, 12, 14} and `density` = 0.1. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. Note that this is the same graph class as `fig1a.py` but on smaller graphs because some slower algorithms are being run. 
 
 3. Experiment 3 (`fig1c.py`):  
-Graph class 2 with `n` = {100, 200, 300, 400, 500}, `degree`, `e_min`, `e_max` = {4, 2, 5}. This is the same setup as `dct-policy`. Additionally we run `separator` with $k = 1$.
+Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500}, `degree`, `e_min`, `e_max` = {4, 2, 5}. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$.
 
 4. Experiment 4 (`fig1d.py`):  
-Graph class 1 with `n` = {10, 15, 20, ... , 95, 100} and `density` = 0.1. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1a.py`, but on larger graphs. 
+Graph class 1 with `n` $\in$ {10, 15, 20, ... , 95, 100} and `density` = 0.1. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1a.py`, but on larger graphs. 
 
 5. Experiment 5 (`fig1e.py`):  
-Graph class 2 with `n` = {100, 200, 300, 400, 500} and `degree`, `e_min`, `e_max` = {40, 20, 50}. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1c.py`, but on denser graphs. 
+Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500} and `degree`, `e_min`, `e_max` = {40, 20, 50}. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1c.py`, but on denser graphs. 
 
 ## Instructions on reproducing our experiments
 
