@@ -77,11 +77,11 @@ The following files are newly created by us:
 
 ## Interpretation of plots in the `figures` folder
 
-Each experiment produces 3 plots measuring "average regret", "maximum regret" and "time taken". For any fixed setting, 100 synthetic DAGs are generated as G<sup>\*</sup> for testing, so we include error bars for "average regret" and "time taken" in the plots.
+Each experiment produces 3 plots measuring "average competitive ratio", "maximum competitive ratio" and "time taken". For any fixed setting, 100 synthetic DAGs are generated as G<sup>\*</sup> for testing, so we include error bars for "average competitive ratio" and "time taken" in the plots.
 
-- **Regret** for an input DAG G<sup>\*</sup> is measured in terms of *total atomic interventions used to orient the essential graph of G<sup>\*</sup> to become G<sup>\*</sup>*, divided by *minimum number of interventions needed to orient G<sup>\*</sup>* (i.e. the verification number of G<sup>\*</sup>).
+- **Competitive ratio** for an input DAG G<sup>\*</sup> is measured in terms of *total atomic interventions used to orient the essential graph of G<sup>\*</sup> to become G<sup>\*</sup>*, divided by *minimum number of interventions needed to orient G<sup>\*</sup>* (i.e. the verification number of G<sup>\*</sup>).
 
-For non-atomic interventions, the numerator in the regret computation sums over the number of vertices intervened in total. For example, if our non-atomic intervention is { $v_1$, $v_5$, $v_6$ }, then we add 3 to the numerator in the regret computation. From our experiments, the **number of interventions** decreases when we allow non-atomic interventions but the **total number of intervened vertices** increases, presenting an interesting trade-off between time and cost -- if an intervention represents a one-day experiments, then we can fully recover G<sup>*</sup> using bounded interventions in less days but the total cost for all these experiments may be higher.
+For non-atomic interventions, the numerator in the competitive ratio computation sums over the number of vertices intervened in total. For example, if our non-atomic intervention is { $v_1$, $v_5$, $v_6$ }, then we add 3 to the numerator in the competitive ratio computation. From our experiments, the **number of interventions** decreases when we allow non-atomic interventions but the **total number of intervened vertices** increases, presenting an interesting trade-off between time and cost -- if an intervention represents a one-day experiments, then we can fully recover G<sup>*</sup> using bounded interventions in less days but the total cost for all these experiments may be higher.
 
 - **Time** is measured as the total amount of time taken to finish computing the nodes to intervene and performing the interventions. Note that our algorithms can beat `random` in terms of runtime in some cases because `random` uses significantly more interventions and hence more overall computation.
 
