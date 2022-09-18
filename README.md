@@ -75,6 +75,10 @@ The following files are newly created by us:
 
 `verify.py` contains our verification algorithm which computes a minimum vertex cover on the covered edges of a given DAG. `separator_policy.py` is our implementation of `Algorithm 1` in the paper that is based on chordal graph separators.
 
+## Implementations of `separator`
+
+Our implementation of the chordal graph separator is the `FAST CHORDAL SEPARATOR` algorithm in [GRE84] which first computes a perfect elimination ordering of a given chordal graph. To do so, we use Eppstein's LexBFS implementation (https://www.ics.uci.edu/~eppstein/PADS/LexBFS.py).
+
 ## Interpretation of plots in the `figures` folder
 
 Each experiment produces 3 plots measuring "average competitive ratio", "maximum competitive ratio" and "time taken". For any fixed setting, 100 synthetic DAGs are generated as G<sup>\*</sup> for testing, so we include error bars for "average competitive ratio" and "time taken" in the plots.
@@ -87,9 +91,32 @@ For non-atomic interventions, the numerator in the competitive ratio computation
 
 In all plots, "lower is better".
 
-## Implementations of `separator`
+## Plots
 
-Our implementation of the chordal graph separator is the `FAST CHORDAL SEPARATOR` algorithm in [GRE84] which first computes a perfect elimination ordering of a given chordal graph. To do so, we use Eppstein's LexBFS implementation (https://www.ics.uci.edu/~eppstein/PADS/LexBFS.py).
+### Experiment 1
+<img src="./figures/exp1_avgcompratio.png" alt="Average competitive ratio plot for experiment 1" width="200"/>
+<img src="./figures/exp1_maxcompratio.png" alt="Max competitive ratio plot for experiment 1" width="200"/>
+<img src="./figures/exp1_times.png" alt="Time ratio plot for experiment 1" width="200"/>
+
+### Experiment 2
+<img src="./figures/exp2_avgcompratio.png" alt="Average competitive ratio plot for experiment 2" width="200"/>
+<img src="./figures/exp2_maxcompratio.png" alt="Max competitive ratio plot for experiment 2" width="200"/>
+<img src="./figures/exp2_times.png" alt="Time ratio plot for experiment 2" width="200"/>
+
+### Experiment 3
+<img src="./figures/exp3_avgcompratio.png" alt="Average competitive ratio plot for experiment 3" width="200"/>
+<img src="./figures/exp3_maxcompratio.png" alt="Max competitive ratio plot for experiment 3" width="200"/>
+<img src="./figures/exp3_times.png" alt="Time ratio plot for experiment 3" width="200"/>
+
+### Experiment 4
+<img src="./figures/exp4_avgcompratio.png" alt="Average competitive ratio plot for experiment 4" width="200"/>
+<img src="./figures/exp4_maxcompratio.png" alt="Max competitive ratio plot for experiment 4" width="200"/>
+<img src="./figures/exp4_times.png" alt="Time ratio plot for experiment 4" width="200"/>
+
+### Experiment 5
+<img src="./figures/exp5_avgcompratio.png" alt="Average competitive ratio plot for experiment 5" width="200"/>
+<img src="./figures/exp5_maxcompratio.png" alt="Max competitive ratio plot for experiment 5" width="200"/>
+<img src="./figures/exp5_times.png" alt="Time ratio plot for experiment 5" width="200"/>
 
 ## References
 
