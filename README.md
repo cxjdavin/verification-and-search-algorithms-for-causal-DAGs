@@ -95,37 +95,37 @@ In all plots, "lower is better".
 
 ### Experiment 1
 <p float="middle">
-<img src="./figures/exp1_avgcompratio.png" alt="Average competitive ratio plot for experiment 1" width="200"/>
-<img src="./figures/exp1_maxcompratio.png" alt="Max competitive ratio plot for experiment 1" width="200"/>
-<img src="./figures/exp1_times.png" alt="Time ratio plot for experiment 1" width="200"/>
+<img src="./figures/exp1_avgcompratio.png" alt="Average competitive ratio plot for experiment 1" width="30%"/>
+<img src="./figures/exp1_maxcompratio.png" alt="Max competitive ratio plot for experiment 1" width="30%"/>
+<img src="./figures/exp1_times.png" alt="Time ratio plot for experiment 1" width="30%"/>
 </p>
 
 ### Experiment 2
 <p float="middle">
-<img src="./figures/exp2_avgcompratio.png" alt="Average competitive ratio plot for experiment 2" width="200"/>
-<img src="./figures/exp2_maxcompratio.png" alt="Max competitive ratio plot for experiment 2" width="200"/>
-<img src="./figures/exp2_times.png" alt="Time ratio plot for experiment 2" width="200"/>
+<img src="./figures/exp2_avgcompratio.png" alt="Average competitive ratio plot for experiment 2" width="30%"/>
+<img src="./figures/exp2_maxcompratio.png" alt="Max competitive ratio plot for experiment 2" width="30%"/>
+<img src="./figures/exp2_times.png" alt="Time ratio plot for experiment 2" width="30%"/>
 </p>
 
 ### Experiment 3
 <p float="middle">
-<img src="./figures/exp3_avgcompratio.png" alt="Average competitive ratio plot for experiment 3" width="200"/>
-<img src="./figures/exp3_maxcompratio.png" alt="Max competitive ratio plot for experiment 3" width="200"/>
-<img src="./figures/exp3_times.png" alt="Time ratio plot for experiment 3" width="200"/>
+<img src="./figures/exp3_avgcompratio.png" alt="Average competitive ratio plot for experiment 3" width="30%"/>
+<img src="./figures/exp3_maxcompratio.png" alt="Max competitive ratio plot for experiment 3" width="30%"/>
+<img src="./figures/exp3_times.png" alt="Time ratio plot for experiment 3" width="30%"/>
 </p>
 
 ### Experiment 4
 <p float="middle">
-<img src="./figures/exp4_avgcompratio.png" alt="Average competitive ratio plot for experiment 4" width="200"/>
-<img src="./figures/exp4_maxcompratio.png" alt="Max competitive ratio plot for experiment 4" width="200"/>
-<img src="./figures/exp4_times.png" alt="Time ratio plot for experiment 4" width="200"/>
+<img src="./figures/exp4_avgcompratio.png" alt="Average competitive ratio plot for experiment 4" width="30%"/>
+<img src="./figures/exp4_maxcompratio.png" alt="Max competitive ratio plot for experiment 4" width="30%"/>
+<img src="./figures/exp4_times.png" alt="Time ratio plot for experiment 4" width="30%"/>
 </p>
 
 ### Experiment 5
 <p float="middle">
-<img src="./figures/exp5_avgcompratio.png" alt="Average competitive ratio plot for experiment 5" width="200"/>
-<img src="./figures/exp5_maxcompratio.png" alt="Max competitive ratio plot for experiment 5" width="200"/>
-<img src="./figures/exp5_times.png" alt="Time ratio plot for experiment 5" width="200"/>
+<img src="./figures/exp5_avgcompratio.png" alt="Average competitive ratio plot for experiment 5" width="30%"/>
+<img src="./figures/exp5_maxcompratio.png" alt="Max competitive ratio plot for experiment 5" width="30%"/>
+<img src="./figures/exp5_times.png" alt="Time ratio plot for experiment 5" width="30%"/>
 </p>
 
 ## References
