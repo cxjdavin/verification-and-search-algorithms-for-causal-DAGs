@@ -15,7 +15,7 @@ plot_results_vary_nodes(
     nnodes_list,
     100,
     DagSampler.SHANMUGAM,
-    dict(density=.1),
+    dict(density=.1, figname="exp2"),
     algorithms=algs,
     overwrite=True
 )

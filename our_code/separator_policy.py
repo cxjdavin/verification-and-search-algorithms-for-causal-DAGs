@@ -2,6 +2,8 @@ from causaldag import DAG
 import random
 import networkx as nx
 
+from collections import defaultdict
+import math
 import sys
 sys.path.insert(0, './PADS')
 import LexBFS
@@ -88,30 +90,22 @@ def compute_clique_graph_separator(adj_list, nodes):
     return C
 
 '''
-Steps until fully oriented:
-1) Compute a clique separator
-2) Partition the clique into disjoint subcliques of n/k vertices arbitrarily
-3) To ensure that cut edges are oriented, intervene on all vertices in each subclique, one subclique at a time
-4) For each subclique, pick each vertex with probability 1/2 independently and uniformly at random
-5) Intervened on chosen vertices in 4). Repeat until subclique is fully oriented.
+Maintain a queue of (bounded) size interventions, skipping interventions if all incident edges already oriented.
+If queue is empty, gather 1/2-clique separators from each connected component of size >= 2, and attempt to orient them.
+To orient the union of 1/2-clique separator nodes Q, use atomic interventions if k = 1 or |Q| = 1, else compute the labelling scheme of Lemma 1 of [SKDV15].
 
-Phase 1: steps 1,2
-Phase 2: step 3
-Phase 3: steps 4,5
-
-When k = 1, the algorithm performs atomic intervention as expected 
-- the subcliques are just one vertex each
-- phase 2 will intervene one vertex at a time as long as the vertex is adjacent to unoriented edges
-- phase 3 will be skipped because a singleton subclique has no internal edges
+The following few lines are copied from the proof of Lemma 1
+Let n = p_d a^d + r_d and n = p_{d-1} a^{d-1} + r_{d-1}
+1) Repeat 0 a^{d-1} times, repeat the next integer 1 a^{d-1} times and so on circularly from {0,1,...,a-1} till p_d * a^d.
+2) After that, repeat 0 ceil(r_d/a) times followed by 1 ceil(r_d/a) times till we reach the nth position. Clearly, n-th integer in the sequence would not exceed a-1.
+3) Every integer occurring after the position a^{d-1} p_{d-1} is increased by 1.
 '''
 def separator_policy(dag: DAG, k: int, verbose: bool = False) -> set:
     intervened_nodes = set()
 
     current_cpdag = dag.cpdag()
 
-    phase = 1
-    subcliques = []
-    subclique_idx = 0
+    intervention_queue = []
     while current_cpdag.num_arcs != dag.num_arcs:
         if verbose: print(f"Remaining edges: {current_cpdag.num_edges}")
         
@@ -127,14 +121,23 @@ def separator_policy(dag: DAG, k: int, verbose: bool = False) -> set:
         G.add_edges_from(undirected_portions.edges)
 
         intervention = None
-        while intervention is None:
-            # Phase 1
-            # Step 1: Compute a clique separator
-            # Step 2: Partition the clique into disjoint subcliques of n/k vertices arbitrarily
-            if phase == 1:
-                # Focus on any connected component
-                cc = G.subgraph(max(nx.connected_components(G), key=len))
+        while len(intervention_queue) > 0 and intervention is None:
+            intervention = intervention_queue.pop()
+    
+            # If all incident edges already oriented, skip this intervention
+            if sum([G.degree[node] for node in intervention]) == 0:
+                intervention = None
 
+        if intervention is None:
+            assert len(intervention_queue) == 0
+
+            # Compute 1/2-clique separator for each connected component of size >= 2
+            clique_separator_nodes = []
+            for cc_nodes in nx.connected_components(G):
+                if len(cc_nodes) == 1:
+                    continue
+                cc = G.subgraph(cc_nodes)
+                
                 # Map indices of subgraph into 0..n-1
                 n = len(cc.nodes())
                 map_indices = dict()
@@ -150,47 +153,50 @@ def separator_policy(dag: DAG, k: int, verbose: bool = False) -> set:
                     nodes.append(map_indices[v])
                     adj_list.append([map_indices[x] for x in list(nbr_dict.keys())])
 
-                # Extract nodes from clique separator
-                clique_nodes = compute_clique_graph_separator(adj_list, nodes)
-                clique_nodes = [unmap_indices[v] for v in clique_nodes]
+                # Compute clique separator for this connected component then add to the list
+                clique_separator_nodes += [unmap_indices[v] for v in compute_clique_graph_separator(adj_list, nodes)]
 
-                # Partition clique nodes into groups of size <= k arbitrarily
-                subcliques = [clique_nodes[i*k:(i+1)*k] for i in range((len(clique_nodes)+k-1)//k)]
-                subclique_idx = 0
-                phase = 2
+            assert len(clique_separator_nodes) > 0
+            if k == 1 or len(clique_separator_nodes) == 1:
+                intervention_queue = [set([v]) for v in clique_separator_nodes]
+            else:
+                # Setup parameters. Note that [SKDV15] use n and x+1 instead of h and L
+                h = len(clique_separator_nodes)
+                k_prime = min(k, h/2)
+                a = math.ceil(h/k_prime)
+                assert a >= 2
+                L = math.ceil(math.log(h,a))
+                assert pow(a,L-1) < h and h <= pow(a,L)
 
-            # Phase 2
-            # Step 3: To ensure that cut edges are oriented, intervene on all vertices in each subclique, one subclique at a time
-            if phase == 2:
-                while intervention is None and subclique_idx < len(subcliques):
-                    # Intervene on entire subclique if it is yet to be fully oriented
-                    subclique_nodes = subcliques[subclique_idx]
-                    if sum([G.degree[node] for node in subclique_nodes]) > 0:
-                        intervention = subcliques[subclique_idx]
-                    subclique_idx += 1
-                if intervention is None:
-                    subclique_idx = 0
-                    phase = 3
+                # Execute labelling scheme
+                S = defaultdict(set)
+                for d in range(1, L+1):
+                    a_d = pow(a,d)
+                    r_d = h % a_d
+                    p_d = h // a_d
+                    a_dminus1 = pow(a,d-1)
+                    r_dminus1 = h % a_dminus1 # Unused
+                    p_dminus1 = h // a_dminus1
+                    assert h == p_d * a_d + r_d
+                    assert h == p_dminus1 * a_dminus1 + r_dminus1
+                    for i in range(1, h+1):
+                        node = clique_separator_nodes[i-1]
+                        if i <= p_d * a_d:
+                            val = (i % a_d) // a_dminus1
+                        else:
+                            val = (i - p_d * a_d) // math.ceil(r_d / a)
+                        if i > a_dminus1 * p_dminus1:
+                            val += 1
+                        S[(d,val)].add(node)
 
-            # Phase 3
-            # Step 4: For each subclique, pick each vertex with probability 1/2 independently and uniformly at random
-            # Step 5: Intervened on chosen vertices in 4). Repeat until subclique is fully oriented.
-            if phase == 3:
-                while intervention is None and subclique_idx < len(subcliques):
-                    # If already fully oriented, skip this subclique
-                    subclique_nodes = subcliques[subclique_idx]
-                    if sum([G.degree[node] for node in subclique_nodes]) == 0:
-                        subclique_idx += 1
-                    else:
-                        # Pick each vertex with probability 1/2 independently and uniformly at random
-                        subclique_nodes = subcliques[subclique_idx]
-                        chance = [random.random() for _ in range(len(subclique_nodes))]
-                        intervention = [subclique_nodes[i] for i in range(len(subclique_nodes)) if chance[i] > 0.5]
-                if intervention is None:
-                    phase = 1
+                # Store output
+                intervention_queue = list(S.values())
+            assert len(intervention_queue) > 0    
+            intervention = intervention_queue.pop()
 
         # Intervene on selected node(s) and update the CPDAG
         assert intervention is not None
+        assert len(intervention) <= k
         intervention = frozenset(intervention)
         intervened_nodes.add(intervention)
         current_cpdag = current_cpdag.interventional_cpdag(dag, intervention)

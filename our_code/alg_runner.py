@@ -54,6 +54,7 @@ class AlgRunner:
                 intervened_nodes = alg(**params)
                 time_taken = time() - start
 
+                validate = True # Always validate
                 if validate:
                     #cpdag = dag.interventional_cpdag([{node} for node in intervened_nodes], cpdag=dag.cpdag())
                     cpdag = dag.interventional_cpdag([{intervention} if type(intervention) is not frozenset else intervention for intervention in intervened_nodes], cpdag=dag.cpdag())
@@ -62,8 +63,7 @@ class AlgRunner:
                         print(f"ix={ix}, alg={self.alg}, num intervened = {len(intervened_nodes)}, num edges={cpdag.num_edges}")
                         raise RuntimeError
                 # write_list(intervened_nodes, os.path.join(self.alg_folder, f'nodes{ix}.txt'))
-                #return len(intervened_nodes), time_taken
-                return sum([1 if type(intervention) is not frozenset else len(intervention) for intervention in intervened_nodes]), time_taken
+                return len(intervened_nodes), time_taken
 
             if multithread:
                 print(f'[AlgRunner.get_alg_results] Running {self.alg} on {cpu_count()-1} cores')

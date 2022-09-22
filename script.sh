@@ -17,11 +17,11 @@ cp ../our_code/*.py .
 mv pdag.py venv/lib/python3.8/site-packages/causaldag/classes/
 
 # Run experiments to obtain plots
-python3 fig1a.py
-python3 fig1b.py
-python3 fig1c.py
-python3 fig1d.py
-python3 fig1e.py
+python3 exp1.py
+python3 exp2.py
+python3 exp3.py
+python3 exp4.py
+python3 exp5.py
 
 # Return to parent directory
 cd ..

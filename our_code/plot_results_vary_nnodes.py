@@ -48,8 +48,9 @@ def plot_results_vary_nodes(
     plt.xticks(nnodes_list)
     plt.legend()
     other_params_str = ','.join((f"{k}={v}" for k, v in other_params.items()))
-    plt.savefig(os.path.join(FIGURE_FOLDER, f'avgregret_sampler={sampler},nnodes_list={nnodes_list},{other_params_str}.png'))
-    plt.savefig(os.path.join(FIGURE_FOLDER, f'avgregret'))
+    #plt.savefig(os.path.join(FIGURE_FOLDER, f'avgregret_sampler={sampler},nnodes_list={nnodes_list},{other_params_str}.png'))
+    #plt.savefig(os.path.join(FIGURE_FOLDER, f'avgregret'))
+    plt.savefig(os.path.join(FIGURE_FOLDER, '{0}_avgcompratio.png'.format(other_params['figname'])))
 
     plt.clf()
     for alg in algorithms:
@@ -60,8 +61,9 @@ def plot_results_vary_nodes(
     plt.legend()
     plt.xticks(nnodes_list)
     other_params_str = ','.join((f"{k}={v}" for k, v in other_params.items()))
-    plt.savefig(os.path.join(FIGURE_FOLDER, f'maxregret_sampler={sampler},nnodes_list={nnodes_list},{other_params_str}.png'))
-    plt.savefig(os.path.join(FIGURE_FOLDER, f'maxregret'))
+    #plt.savefig(os.path.join(FIGURE_FOLDER, f'maxregret_sampler={sampler},nnodes_list={nnodes_list},{other_params_str}.png'))
+    #plt.savefig(os.path.join(FIGURE_FOLDER, f'maxregret'))
+    plt.savefig(os.path.join(FIGURE_FOLDER, '{0}_maxcompratio.png'.format(other_params['figname'])))
 
     plt.clf()
     for alg in algorithms:
@@ -74,7 +76,8 @@ def plot_results_vary_nodes(
     plt.yscale('log')
     plt.xticks(nnodes_list)
     other_params_str = ','.join((f"{k}={v}" for k, v in other_params.items()))
-    plt.savefig(os.path.join(FIGURE_FOLDER, f'times_sampler={sampler},nnodes_list={nnodes_list},{other_params_str}.png'))
-    plt.savefig(os.path.join(FIGURE_FOLDER, f'times'))
+    #plt.savefig(os.path.join(FIGURE_FOLDER, f'times_sampler={sampler},nnodes_list={nnodes_list},{other_params_str}.png'))
+    #plt.savefig(os.path.join(FIGURE_FOLDER, f'times'))
+    plt.savefig(os.path.join(FIGURE_FOLDER, '{0}_time.png'.format(other_params['figname'])))
 
     #ipdb.set_trace()
