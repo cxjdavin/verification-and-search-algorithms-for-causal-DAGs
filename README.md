@@ -28,20 +28,20 @@ All the above algorithms perform **atomic interventions**. Our algorithm `separa
 
 ### Experiments
 
-1. Experiment 1 (`fig1a.py`):  
-Graph class 1 with `n` $\in$ {10, 15, 20, 25} and `density` $\rho = 0.1$. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. 
+1. Experiment 1 (`exp1.py`):  
+Graph class 1 with `n` $\in$ {10, 15, 20, 25} and `density` $\rho = 0.1$. This is the same setup as `dct-policy`'s `fig1a.py`. Additionally, we run `separator` with $k = 1$. 
 
-2. Experiment 2 (`fig1b.py`):  
-Graph class 1 with `n` $\in$ {8, 10, 12, 14} and `density` $\rho = 0.1$. This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$. Note that this is the same graph class as `fig1a.py` but on smaller graphs because some slower algorithms are being run. 
+2. Experiment 2 (`exp2.py`):  
+Graph class 1 with `n` $\in$ {8, 10, 12, 14} and `density` $\rho = 0.1$. This is the same setup as `dct-policy`'s `fig1b.py`. Additionally, we run `separator` with $k = 1$. Note that this is the same graph class as `exp1.py` but on smaller graphs because some slower algorithms are being run. 
 
-3. Experiment 3 (`fig1c.py`):  
-Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500} and (`degree`, `e_min`, `e_max`) = (4, 2, 5). This is the same setup as `dct-policy`. Additionally, we run `separator` with $k = 1$.
+3. Experiment 3 (`exp3.py`):  
+Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500} and (`degree`, `e_min`, `e_max`) = (4, 2, 5). This is the same setup as `dct-policy`'s `fig1c.py`. Additionally, we run `separator` with $k = 1$.
 
-4. Experiment 4 (`fig1d.py`):  
-Graph class 1 with `n` $\in$ {10, 15, 20, ... , 95, 100} and `density` $\rho = 0.1$. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1a.py`, but on larger graphs. 
+4. Experiment 4 (`exp4.py`):  
+Graph class 1 with `n` $\in$ {10, 15, 20, ... , 95, 100} and `density` $\rho = 0.1$. We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `exp1.py`, but on larger graphs. 
 
-5. Experiment 5 (`fig1e.py`):  
-Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500} and (`degree`, `e_min`, `e_max`) = (40, 20, 50). We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `fig1c.py`, but on denser graphs. 
+5. Experiment 5 (`exp5.py`):  
+Graph class 2 with `n` $\in$ {100, 200, 300, 400, 500} and (`degree`, `e_min`, `e_max`) = (40, 20, 50). We run `separator` with $k \in$ {1,2,3,5} on the same graph class as `exp3.py`, but on denser graphs. 
 
 ## Instructions on reproducing our experiments
 
@@ -59,19 +59,16 @@ The following files are modifications of the dct-policy source files:
 1) `alg_runner.py`
 2) `config.py`
 3) `dag_loader.py`
-4) `fig1a.py` (Experiment 1)
-5) `fig1b.py` (Experiment 2)
-6) `fig1c.py` (Experiment 3)
-7) `fig1d.py` (Experiment 4)
-8) `fig1e.py` (Experiment 5)
-8) `pdag.py`
-9) `plot_results_vary_nnodes.py`
+4) `pdag.py`
+5) `plot_results_vary_nnodes.py`
+6) `result_getter.py`
 
 We only slightly modified the above files to incorporate our algorithms. For instance, we have to import our scripts and add some new dictionary entries so that the experiment scripts will also run our algorithms and the insert the results in the same plots. `pdag.py` includes a one-line bug fix (to correctly handle non-atomic interventions) to the `PDAG` class of `causaldag` package.
 
 The following files are newly created by us:
-1) `separator_policy.py`
-2) `verify.py`
+1) `exp1.py`, `exp2.py`, `exp3.py`, `exp4.py`, `exp5.py`
+2) `separator_policy.py`
+3) `verify.py`
 
 `verify.py` contains our verification algorithm which computes a minimum vertex cover on the covered edges of a given DAG. `separator_policy.py` is our implementation of `Algorithm 1` in the paper that is based on chordal graph separators.
 
@@ -97,35 +94,35 @@ In all plots, "lower is better".
 <p float="middle">
 <img src="./figures/exp1_avgcompratio.png" alt="Average competitive ratio plot for experiment 1" width="30%"/>
 <img src="./figures/exp1_maxcompratio.png" alt="Max competitive ratio plot for experiment 1" width="30%"/>
-<img src="./figures/exp1_times.png" alt="Time ratio plot for experiment 1" width="30%"/>
+<img src="./figures/exp1_time.png" alt="Time ratio plot for experiment 1" width="30%"/>
 </p>
 
 ### Experiment 2
 <p float="middle">
 <img src="./figures/exp2_avgcompratio.png" alt="Average competitive ratio plot for experiment 2" width="30%"/>
 <img src="./figures/exp2_maxcompratio.png" alt="Max competitive ratio plot for experiment 2" width="30%"/>
-<img src="./figures/exp2_times.png" alt="Time ratio plot for experiment 2" width="30%"/>
+<img src="./figures/exp2_time.png" alt="Time ratio plot for experiment 2" width="30%"/>
 </p>
 
 ### Experiment 3
 <p float="middle">
 <img src="./figures/exp3_avgcompratio.png" alt="Average competitive ratio plot for experiment 3" width="30%"/>
 <img src="./figures/exp3_maxcompratio.png" alt="Max competitive ratio plot for experiment 3" width="30%"/>
-<img src="./figures/exp3_times.png" alt="Time ratio plot for experiment 3" width="30%"/>
+<img src="./figures/exp3_time.png" alt="Time ratio plot for experiment 3" width="30%"/>
 </p>
 
 ### Experiment 4
 <p float="middle">
 <img src="./figures/exp4_avgcompratio.png" alt="Average competitive ratio plot for experiment 4" width="30%"/>
 <img src="./figures/exp4_maxcompratio.png" alt="Max competitive ratio plot for experiment 4" width="30%"/>
-<img src="./figures/exp4_times.png" alt="Time ratio plot for experiment 4" width="30%"/>
+<img src="./figures/exp4_time.png" alt="Time ratio plot for experiment 4" width="30%"/>
 </p>
 
 ### Experiment 5
 <p float="middle">
 <img src="./figures/exp5_avgcompratio.png" alt="Average competitive ratio plot for experiment 5" width="30%"/>
 <img src="./figures/exp5_maxcompratio.png" alt="Max competitive ratio plot for experiment 5" width="30%"/>
-<img src="./figures/exp5_times.png" alt="Time ratio plot for experiment 5" width="30%"/>
+<img src="./figures/exp5_time.png" alt="Time ratio plot for experiment 5" width="30%"/>
 </p>
 
 ## References
