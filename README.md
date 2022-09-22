@@ -90,42 +90,42 @@ For non-atomic interventions, we know (Lemma 30) that $\nu_k(G^*) \geq \lceil \n
 
 ### Experiment 1
 <p float="middle">
-<img src="./figures/exp1_avgcompratio.png" alt="Average competitive ratio plot for experiment 1" width="25%"/>
-<img src="./figures/exp1_maxcompratio.png" alt="Max competitive ratio plot for experiment 1" width="25%"/>
-<img src="./figures/exp1_time.png" alt="Time ratio plot for experiment 1" width="25%"/>
-<img src="./figures/exp1_interventioncount.png" alt="Intervention count plot for experiment 1" width="25%"/>
+<img src="./figures/exp1_avgcompratio.png" alt="Average competitive ratio plot for experiment 1" width="45%"/>
+<img src="./figures/exp1_maxcompratio.png" alt="Max competitive ratio plot for experiment 1" width="45%"/>
+<img src="./figures/exp1_time.png" alt="Time ratio plot for experiment 1" width="45%"/>
+<img src="./figures/exp1_interventioncount.png" alt="Intervention count plot for experiment 1" width="45%"/>
 </p>
 
 ### Experiment 2
 <p float="middle">
-<img src="./figures/exp2_avgcompratio.png" alt="Average competitive ratio plot for experiment 2" width="25%"/>
-<img src="./figures/exp2_maxcompratio.png" alt="Max competitive ratio plot for experiment 2" width="25%"/>
-<img src="./figures/exp2_time.png" alt="Time ratio plot for experiment 2" width="25%"/>
-<img src="./figures/exp2_interventioncount.png" alt="Intervention count plot for experiment 2" width="25%"/>
+<img src="./figures/exp2_avgcompratio.png" alt="Average competitive ratio plot for experiment 2" width="45%"/>
+<img src="./figures/exp2_maxcompratio.png" alt="Max competitive ratio plot for experiment 2" width="45%"/>
+<img src="./figures/exp2_time.png" alt="Time ratio plot for experiment 2" width="45%"/>
+<img src="./figures/exp2_interventioncount.png" alt="Intervention count plot for experiment 2" width="45%"/>
 </p>
 
 ### Experiment 3
 <p float="middle">
-<img src="./figures/exp3_avgcompratio.png" alt="Average competitive ratio plot for experiment 3" width="25%"/>
-<img src="./figures/exp3_maxcompratio.png" alt="Max competitive ratio plot for experiment 3" width="25%"/>
-<img src="./figures/exp3_time.png" alt="Time ratio plot for experiment 3" width="25%"/>
-<img src="./figures/exp3_interventioncount.png" alt="Intervention count plot for experiment 3" width="25%"/>
+<img src="./figures/exp3_avgcompratio.png" alt="Average competitive ratio plot for experiment 3" width="45%"/>
+<img src="./figures/exp3_maxcompratio.png" alt="Max competitive ratio plot for experiment 3" width="45%"/>
+<img src="./figures/exp3_time.png" alt="Time ratio plot for experiment 3" width="45%"/>
+<img src="./figures/exp3_interventioncount.png" alt="Intervention count plot for experiment 3" width="45%"/>
 </p>
 
 ### Experiment 4
 <p float="middle">
-<img src="./figures/exp4_avgcompratio.png" alt="Average competitive ratio plot for experiment 4" width="25%"/>
-<img src="./figures/exp4_maxcompratio.png" alt="Max competitive ratio plot for experiment 4" width="25%"/>
-<img src="./figures/exp4_time.png" alt="Time ratio plot for experiment 4" width="25%"/>
-<img src="./figures/exp4_interventioncount.png" alt="Intervention count plot for experiment 4" width="25%"/>
+<img src="./figures/exp4_avgcompratio.png" alt="Average competitive ratio plot for experiment 4" width="45%"/>
+<img src="./figures/exp4_maxcompratio.png" alt="Max competitive ratio plot for experiment 4" width="45%"/>
+<img src="./figures/exp4_time.png" alt="Time ratio plot for experiment 4" width="45%"/>
+<img src="./figures/exp4_interventioncount.png" alt="Intervention count plot for experiment 4" width="45%"/>
 </p>
 
 ### Experiment 5
 <p float="middle">
-<img src="./figures/exp5_avgcompratio.png" alt="Average competitive ratio plot for experiment 5" width="25%"/>
-<img src="./figures/exp5_maxcompratio.png" alt="Max competitive ratio plot for experiment 5" width="25%"/>
-<img src="./figures/exp5_time.png" alt="Time ratio plot for experiment 5" width="25%"/>
-<img src="./figures/exp5_interventioncount.png" alt="Intervention count plot for experiment 5" width="25%"/>
+<img src="./figures/exp5_avgcompratio.png" alt="Average competitive ratio plot for experiment 5" width="45%"/>
+<img src="./figures/exp5_maxcompratio.png" alt="Max competitive ratio plot for experiment 5" width="45%"/>
+<img src="./figures/exp5_time.png" alt="Time ratio plot for experiment 5" width="45%"/>
+<img src="./figures/exp5_interventioncount.png" alt="Intervention count plot for experiment 5" width="45%"/>
 </p>
 
 ## References
