@@ -35,6 +35,8 @@ def plot_results_vary_nodes(
     max_ratios = res_df.groupby(level=['alg', 'nnodes'])['regret_ratio'].max()
     average_times = res_df.groupby(level=['alg', 'nnodes'])['time'].mean()
     std_times = res_df.groupby(level=['alg', 'nnodes'])['time'].std()
+    mean_interventions = res_df.groupby(level=['alg', 'nnodes'])['interventions'].mean()
+    std_interventions = res_df.groupby(level=['alg', 'nnodes'])['interventions'].std()
 
     algorithms = sorted(algorithms)
 
@@ -79,5 +81,16 @@ def plot_results_vary_nodes(
     #plt.savefig(os.path.join(FIGURE_FOLDER, f'times_sampler={sampler},nnodes_list={nnodes_list},{other_params_str}.png'))
     #plt.savefig(os.path.join(FIGURE_FOLDER, f'times'))
     plt.savefig(os.path.join(FIGURE_FOLDER, '{0}_time.png'.format(other_params['figname'])))
+
+    plt.clf()
+    for alg in algorithms:
+        plt.errorbar(nnodes_list, mean_interventions[mean_interventions.index.get_level_values('alg') == alg], color=POLICY2COLOR[alg], label=POLICY2LABEL[alg], yerr=std_interventions[std_interventions.index.get_level_values('alg') == alg], capsize=5)
+
+    plt.xlabel('Number of Nodes')
+    plt.ylabel('Average number of interventions used')
+    plt.legend()
+    plt.xticks(nnodes_list)
+    other_params_str = ','.join((f"{k}={v}" for k, v in other_params.items()))
+    plt.savefig(os.path.join(FIGURE_FOLDER, '{0}_interventioncount.png'.format(other_params['figname'])))
 
     #ipdb.set_trace()
