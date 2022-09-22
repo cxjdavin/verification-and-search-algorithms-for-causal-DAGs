@@ -82,7 +82,7 @@ Each experiment produces 4 plots measuring "average competitive ratio", "maximum
 
 The **competitive ratio** for an input DAG G<sup>\*</sup> is measured in terms of *total atomic interventions used to orient the essential graph of G<sup>\*</sup> to become G<sup>\*</sup>*, divided by *minimum number of interventions needed to orient G<sup>\*</sup>* (i.e. the verification number $\nu_1(G^*)$ of G<sup>\*</sup>).
 
-For non-atomic interventions, we know (Lemma 30) that $\nu_k(G^{*}) \geq \lceil \nu_1(G^{*})/k \rceil$, so we use $\lceil \nu_1(G^*)/k \rceil$ as the denominator of the competitive ratio computation. While the competitive ratio increases as $k$ increases (Theorem 16), the **number of interventions** used decreases as $k$ increases.
+For non-atomic interventions, we know (Lemma 30) that $\nu_k(G) \geq \lceil \nu_1(G)/k \rceil$ for any DAG $G$, so we use $\lceil \nu_1(G^*)/k \rceil$ as the denominator of the competitive ratio computation. While the competitive ratio increases as $k$ increases (Theorem 16), the **number of interventions** used decreases as $k$ increases.
 
 **Time** is measured as the total amount of time taken to finish computing the nodes to intervene and performing the interventions. Note that our algorithm can beat `random` in terms of runtime in some cases because `random` uses significantly more interventions and hence more overall computation.
 
