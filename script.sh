@@ -7,7 +7,7 @@ cd dct-policy
 bash setup.sh
 source venv/bin/activate
 pip install seaborn tqdm ipdb p_tqdm
-pip install networkx --upgrade
+pip install networkx==2.8.8
 
 # Grab PADS source files
 wget -r --no-parent --no-host-directories --cut-dirs=1 http://www.ics.uci.edu/\~eppstein/PADS/
