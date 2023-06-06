@@ -1,6 +1,6 @@
 # Verification and search algorithms for causal DAGs
 
-This is the accompanying repository the "Verification and search algorithms for causal DAGs" paper. It is available at https://arxiv.org/abs/2206.15374. Our experiments are based on https://github.com/csquires/dct-policy, the accompanying repository of [SMG+20].
+This is the accompanying repository of the "Verification and search algorithms for causal DAGs" paper. It is available at https://arxiv.org/abs/2206.15374. Our experiments are based on https://github.com/csquires/dct-policy, the accompanying repository of [SMG+20].
 
 ## Experimental details
 
